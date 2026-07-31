@@ -46,8 +46,13 @@ section{
 }
 
 #hero{
+  min-height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:100px 20px;
+  padding:60px 20px;
 }
 
 #hero img{
@@ -60,14 +65,20 @@ section{
   margin-bottom:25px;
 }
 
+
 #hero h2{
-  font-size:48px;
-  margin-bottom:15px;
+  font-size:64px;
+  line-height:1.1;
+  font-weight:800;
+  margin:20px 0;
+  letter-spacing:-2px;
 }
 
 #hero p{
-  font-size:22px;
+  font-size:28px;
   color:#cbd5e1;
+  min-height:40px;
+  margin-bottom:35px;
 }
 
 .button{
@@ -145,4 +156,16 @@ footer{
   background:#38bdf8;
   color:#08111f;
   box-shadow:0 0 20px rgba(56,189,248,.6);
+}
+#hero img{
+    transition:0.4s;
+}
+
+#hero img:hover{
+    transform:scale(1.06);
+    box-shadow:0 0 60px #38bdf8;
+}
+
+html{
+    scroll-behavior:smooth;
 }
