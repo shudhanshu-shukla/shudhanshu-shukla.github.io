@@ -56,13 +56,19 @@ section{
 }
 
 #hero img{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  border:5px solid #38bdf8;
-  box-shadow:0 0 30px #38bdf8;
-  object-fit:cover;
-  margin-bottom:25px;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    border:6px solid #38bdf8;
+    object-fit:cover;
+    margin-bottom:30px;
+    transition:0.4s;
+    box-shadow:0 0 35px rgba(56,189,248,.7);
+}
+
+#hero img:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 60px rgba(56,189,248,.9);
 }
 
 
