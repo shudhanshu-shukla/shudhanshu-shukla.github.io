@@ -228,3 +228,12 @@ footer p{
 footer p {
     margin: 8px 0;
 }
+#contact{
+    padding-top:40px;
+    padding-bottom:20px;
+    text-align:center;
+}
+
+footer{
+    margin-top:20px;
+}
