@@ -223,3 +223,15 @@ footer p{
     color:#38bdf8;
     font-weight:bold;
 }
+footer {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background: #0b1320;
+    text-align: center;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 8px 0;
+}
