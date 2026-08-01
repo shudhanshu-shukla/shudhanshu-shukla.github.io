@@ -40,9 +40,9 @@ nav a:hover{
 }
 
 section{
-  max-width:1100px;
-  margin:auto;
-  padding:80px 25px;
+    max-width:1100px;
+    margin:0 auto;
+    padding:60px 25px;
 }
 
 #hero{
@@ -236,4 +236,16 @@ footer p {
 
 footer{
     margin-top:20px;
+}
+#contact{
+    padding-top:20px;
+    padding-bottom:10px;
+}
+
+#contact p{
+    margin:10px 0;
+}
+
+footer{
+    margin-top:0;
 }
