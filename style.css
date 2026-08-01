@@ -196,13 +196,15 @@ html{
     margin-bottom:15px;
 }
 footer{
+    width:100%;
     text-align:center;
     padding:30px 20px;
     background:#0b1320;
     color:#bbb;
     border-top:1px solid rgba(255,255,255,0.1);
+    margin-top:60px;
+    box-sizing:border-box;
 }
-
 footer p{
     margin:8px 0;
     font-size:16px;
