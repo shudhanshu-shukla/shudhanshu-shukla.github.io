@@ -195,12 +195,26 @@ html{
     font-size:34px;
     margin-bottom:15px;
 }
+footer{
+    text-align:center;
+    padding:30px 20px;
+    background:#0b1320;
+    color:#bbb;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+footer p{
+    margin:8px 0;
+    font-size:16px;
+}
 
 .project-card p{
     font-size:20px;
     color:#d1d5db;
     line-height:1.7;
-}
+}  
+
+
 
 .tech{
     margin:25px 0;
