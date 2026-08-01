@@ -1,7 +1,7 @@
 const words = [
-  "Class 11 Student",
+  "Software Developer",
+  "AI Enthusiast",
   "JEE Aspirant",
-  "AI Developer",
   "Building StudyLocker"
 ];
 
