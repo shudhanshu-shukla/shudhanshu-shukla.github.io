@@ -249,3 +249,13 @@ footer p {
 }
 
 
+.badge{
+    display:inline-block;
+    background:#38bdf8;
+    color:#08111f;
+    font-weight:bold;
+    padding:8px 16px;
+    border-radius:30px;
+    margin:12px 0 18px;
+    font-size:14px;
+}
