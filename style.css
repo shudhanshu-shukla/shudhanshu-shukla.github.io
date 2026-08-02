@@ -146,10 +146,16 @@ footer{
   }
 }
 .skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
-  margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:30px;
+}
+
+@media(max-width:768px){
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
 }
 
 .skill-card{
