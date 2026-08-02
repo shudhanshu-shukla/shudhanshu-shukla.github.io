@@ -287,3 +287,21 @@ footer p {
         transform:translateY(0);
     }
 }
+.typing-name{
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:3px solid #38bdf8;
+    width:0;
+    animation:typing 3s steps(17,end) forwards,
+              blink .8s infinite;
+}
+
+@keyframes typing{
+    from{width:0;}
+    to{width:17ch;}
+}
+
+@keyframes blink{
+    50%{border-color:transparent;}
+}
