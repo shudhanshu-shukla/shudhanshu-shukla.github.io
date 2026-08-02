@@ -259,3 +259,7 @@ footer p {
     margin:12px 0 18px;
     font-size:14px;
 }
+.highlight{
+    color:#38bdf8;
+    text-shadow:0 0 20px rgba(56,189,248,.6);
+}
