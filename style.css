@@ -70,6 +70,7 @@ section{
     margin-bottom:30px;
     transition:0.4s;
     box-shadow:0 0 35px rgba(56,189,248,.7);
+    animation: float 4s ease-in-out infinite;
 }
 
 #hero img:hover{
@@ -274,4 +275,15 @@ footer p {
 .highlight{
     color:#38bdf8;
     text-shadow:0 0 20px rgba(56,189,248,.6);
+}
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+    100%{
+        transform:translateY(0);
+    }
 }
