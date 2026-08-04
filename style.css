@@ -371,3 +371,13 @@ footer p {
     0%{background-position:0% 50%;}
     100%{background-position:100% 50%;}
 }
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all 0.8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
