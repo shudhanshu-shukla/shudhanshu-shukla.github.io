@@ -381,3 +381,19 @@ footer p {
     opacity:1;
     transform:translateY(0);
 }
+
+#stats h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4db8ff;
+}
+
+#stats .skill-card {
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#stats .skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 183, 255, 0.3);
+}
