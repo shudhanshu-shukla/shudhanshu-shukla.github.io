@@ -427,3 +427,25 @@ section {
     color:#cbd5e1;
     padding:0 20px;
 }
+
+.hero-tagline {
+    font-size: 1.5rem;
+    color: #d1d5db;
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.hero-description {
+    max-width: 750px;
+    margin: 25px auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+.hero-role {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #38bdf8;
+    margin: 25px 0;
+}
