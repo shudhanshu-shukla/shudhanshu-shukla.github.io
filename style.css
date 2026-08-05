@@ -449,3 +449,20 @@ section {
     color: #38bdf8;
     margin: 25px 0;
 }
+#typing{
+    display:inline;
+    color:#ffffff;
+    font-weight:600;
+}
+
+#typing::after{
+    content:"|";
+    color:#38bdf8;
+    animation:blink 0.8s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
