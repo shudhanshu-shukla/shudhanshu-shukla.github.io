@@ -1,10 +1,9 @@
 const words = [
-  "Software Developer",
-  "AI Enthusiast",
-  "JEE Aspirant",
-  "Building StudyLocker"
+    "Software Developer",
+    "Building StudyLocker",
+    "AI Enthusiast",
+    "Future Software Engineer"
 ];
-
 let wordIndex = 0;
 let charIndex = 0;
 let deleting = false;
