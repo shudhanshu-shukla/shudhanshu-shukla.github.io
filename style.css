@@ -636,3 +636,67 @@ section {
         margin-top: 12px;
     }
 }
+/* ================================
+   PREMIUM PROJECT BUTTONS
+================================ */
+
+.project-card .button {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: linear-gradient(135deg, #38bdf8, #2563eb);
+    color: white;
+    box-shadow: 0 8px 20px rgba(37,99,235,0.25);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+}
+
+/* Shine effect */
+.project-card .button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+
+/* Hover */
+.project-card .button:hover {
+    transform: translateY(-5px) scale(1.03);
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    box-shadow:
+        0 10px 30px rgba(56,189,248,0.35),
+        0 0 20px rgba(56,189,248,0.25);
+}
+
+/* Shine animation */
+.project-card .button:hover::before {
+    left: 130%;
+}
+
+/* Keep button text above shine */
+.project-card .button {
+    z-index: 1;
+}
+
+.project-card .button::before {
+    z-index: -1;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .project-card .button {
+        padding: 13px 22px;
+        margin-right: 5px;
+    }
+}
