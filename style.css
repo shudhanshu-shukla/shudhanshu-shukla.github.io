@@ -700,3 +700,102 @@ section {
         margin-right: 5px;
     }
 }
+
+
+/* ================================
+   PARSEC PREMIUM PROJECT CARD
+================================ */
+
+.parsec-card {
+    border-color: rgba(120, 90, 255, 0.45);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.11),
+            rgba(80,60,180,0.08)
+        );
+}
+
+.parsec-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.parsec-logo {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow:
+        0 0 25px rgba(120,80,255,0.35);
+}
+
+.parsec-header h3 {
+    margin-bottom: 12px;
+    font-size: 34px;
+    color: #ffffff;
+}
+
+.parsec-intro {
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.parsec-info {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.parsec-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.parsec-icon {
+    min-width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(56,189,248,0.12);
+    font-size: 22px;
+}
+
+.parsec-info-item strong {
+    display: block;
+    color: #38bdf8;
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
+.parsec-info-item p {
+    margin: 0;
+    font-size: 16px;
+}
+
+@media(max-width:768px){
+
+    .parsec-header {
+        gap: 18px;
+    }
+
+    .parsec-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .parsec-header h3 {
+        font-size: 28px;
+    }
+
+    .parsec-info-item {
+        gap: 12px;
+    }
+}
