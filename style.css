@@ -1232,3 +1232,32 @@ section > h2 {
         padding-bottom: 30px;
     }
 }
+
+/* Mobile hero refinement */
+@media (max-width: 768px) {
+    #hero {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    #hero img {
+        margin-bottom: 18px;
+    }
+
+    #hero h2 {
+        margin-bottom: 18px;
+    }
+
+    #hero .hero-tagline {
+        margin-bottom: 14px;
+    }
+
+    #hero .hero-description {
+        margin-top: 18px;
+        margin-bottom: 24px;
+    }
+
+    #hero .hero-buttons {
+        gap: 10px;
+    }
+}
