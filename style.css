@@ -1100,3 +1100,79 @@ footer p {
     margin-right: 3px;
   }
 }
+
+/* =================================
+   FINAL SPACING & LAYOUT REFINEMENT
+================================= */
+
+section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+/* Keep the hero spacious but controlled */
+#hero {
+    min-height: 88vh;
+    padding-top: 55px;
+    padding-bottom: 55px;
+}
+
+/* Tighter section headings */
+section > h2 {
+    margin-bottom: 30px;
+}
+
+/* Reduce excessive gaps between project cards */
+.project-card {
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+/* Keep certifications compact */
+#certifications {
+    padding-top: 55px;
+    padding-bottom: 55px;
+}
+
+/* Keep journey section balanced */
+#stats {
+    padding-top: 55px;
+    padding-bottom: 55px;
+}
+
+/* Contact should sit naturally above footer */
+#contact {
+    padding-top: 55px;
+    padding-bottom: 45px;
+}
+
+/* Better mobile spacing */
+@media (max-width: 768px) {
+
+    section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    #hero {
+        min-height: auto;
+        padding-top: 55px;
+        padding-bottom: 60px;
+    }
+
+    .project-card {
+        margin-top: 22px;
+        margin-bottom: 22px;
+    }
+
+    #certifications,
+    #stats {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    #contact {
+        padding-top: 45px;
+        padding-bottom: 35px;
+    }
+}
