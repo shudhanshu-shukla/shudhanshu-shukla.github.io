@@ -1176,3 +1176,59 @@ section > h2 {
         padding-bottom: 35px;
     }
 }
+
+/* =================================
+   PROFESSIONAL SECTION RHYTHM
+================================= */
+
+#skills {
+    padding-bottom: 35px;
+}
+
+#tech-stack {
+    padding-top: 35px;
+    padding-bottom: 45px;
+}
+
+#projects {
+    padding-top: 45px;
+}
+
+#certifications {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+#stats {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+#contact {
+    padding-top: 45px;
+    padding-bottom: 35px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #skills {
+        padding-bottom: 25px;
+    }
+
+    #tech-stack {
+        padding-top: 25px;
+        padding-bottom: 35px;
+    }
+
+    #projects,
+    #certifications,
+    #stats {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    #contact {
+        padding-top: 35px;
+        padding-bottom: 30px;
+    }
+}
