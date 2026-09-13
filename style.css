@@ -857,3 +857,246 @@ footer p {
     font-size: 15px !important;
   }
 }
+
+/* =========================================================
+   PROJECTS — PREMIUM PRODUCT SHOWCASE
+   ========================================================= */
+
+#projects {
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+#projects > h2 {
+  font-size: clamp(40px, 6vw, 54px);
+  margin-bottom: 45px;
+}
+
+/* Main project cards */
+#projects .project-card {
+  max-width: 850px;
+  padding: 40px;
+  margin: 28px auto;
+  border-radius: 28px;
+  background: rgba(255, 253, 248, 0.94);
+}
+
+/* Featured StudyLocker card */
+#projects .project-card:first-of-type {
+  border-top: 1px solid #d7dfd7;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 253, 248, 0.98),
+      rgba(238, 243, 236, 0.92)
+    );
+}
+
+/* StudyLocker visual accent */
+#projects .project-card:first-of-type::after {
+  content: "STUDY  •  FOCUS  •  ACHIEVE";
+  display: block;
+  margin: 28px 0 5px;
+  padding: 22px;
+  border-radius: 18px;
+  background: var(--forest);
+  color: #e8f0ea;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-align: center;
+}
+
+/* Project title */
+#projects .project-card h3 {
+  font-size: clamp(28px, 4vw, 36px);
+  letter-spacing: -1px;
+}
+
+/* Featured badge */
+#projects .project-card:first-of-type .badge {
+  background: #e2eadf;
+  color: var(--forest);
+}
+
+/* Project technology */
+#projects .project-card .tech {
+  padding-top: 5px;
+  border-top: 1px solid var(--line);
+  line-height: 2;
+}
+
+/* Project buttons */
+#projects .project-card .button {
+  margin-right: 7px;
+  margin-top: 12px;
+}
+
+/* =========================================================
+   PARSEC
+   ========================================================= */
+
+#projects .parsec-card {
+  background:
+    linear-gradient(
+      135deg,
+      #edf3ed,
+      #e4ece5
+    );
+  border-color: #cad8ce;
+}
+
+#projects .parsec-card::after {
+  content: "AI  •  CREATE  •  EDIT";
+  display: block;
+  margin-top: 30px;
+  padding: 21px;
+  border-radius: 18px;
+  background: #173f35;
+  color: #dce9df;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-align: center;
+}
+
+#projects .parsec-logo {
+  width: 92px;
+  height: 92px;
+  border-radius: 20px;
+}
+
+#projects .parsec-header {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(23, 63, 53, 0.10);
+}
+
+#projects .parsec-header h3 {
+  font-size: clamp(30px, 4vw, 38px);
+}
+
+#projects .parsec-info-item {
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 253, 248, 0.55);
+  border: 1px solid rgba(23, 63, 53, 0.08);
+}
+
+#projects .parsec-info-item:hover {
+  background: rgba(255, 253, 248, 0.85);
+}
+
+/* =========================================================
+   OTHER PROJECTS
+   ========================================================= */
+
+#projects .project-card:nth-of-type(3),
+#projects .project-card:nth-of-type(4) {
+  max-width: 850px;
+}
+
+#projects .project-card:nth-of-type(3)::after {
+  content: "HTML  •  CSS  •  JAVASCRIPT";
+  display: block;
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 15px;
+  background: #edf1ec;
+  color: var(--forest);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+#projects .project-card:nth-of-type(4)::after {
+  content: "AI  •  JAVASCRIPT  •  APIS";
+  display: block;
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 15px;
+  background: #edf1ec;
+  color: var(--forest);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* =========================================================
+   PROJECT HOVER
+   ========================================================= */
+
+#projects .project-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+#projects .project-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 25px 55px rgba(23, 63, 53, 0.13);
+}
+
+#projects .project-card h3 {
+  transition: transform 0.3s ease;
+}
+
+#projects .project-card:hover h3 {
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   REDUCE EXCESSIVE SPACE AFTER PROJECTS
+   ========================================================= */
+
+#certifications {
+  padding-top: 65px;
+}
+
+#stats {
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  #projects {
+    padding-top: 55px;
+  }
+
+  #projects .project-card {
+    padding: 27px 22px;
+    border-radius: 22px;
+  }
+
+  #projects .project-card:first-of-type::after,
+  #projects .parsec-card::after {
+    padding: 18px 10px;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+  }
+
+  #projects .parsec-logo {
+    width: 72px;
+    height: 72px;
+  }
+
+  #projects .parsec-info-item {
+    padding: 13px;
+  }
+
+  #projects .project-card .button {
+    margin-right: 3px;
+  }
+}
