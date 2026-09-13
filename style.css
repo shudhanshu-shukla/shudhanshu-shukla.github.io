@@ -708,3 +708,152 @@ footer p {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =========================================================
+   HERO — EDITORIAL PROFESSIONAL REDESIGN
+   ========================================================= */
+
+#hero {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 75px);
+  padding: 95px 25px 110px;
+  overflow: hidden;
+}
+
+/* Soft editorial background */
+#hero::after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: -180px;
+  top: 80px;
+  border-radius: 50%;
+  background: rgba(143, 169, 157, 0.16);
+  filter: blur(90px);
+  z-index: -1;
+}
+
+/* Small professional identity label */
+#hero::before {
+  content: "IDEAS  →  CODE  →  IMPACT";
+  display: block;
+  margin-bottom: 24px;
+  color: var(--forest-light);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+/* Profile image */
+#hero img {
+  width: 245px;
+  height: 245px;
+  border-radius: 30px;
+  border: 8px solid var(--white);
+  outline: 1px solid var(--line);
+  object-fit: cover;
+  margin-bottom: 32px;
+  box-shadow:
+    0 25px 60px rgba(23, 63, 53, 0.17),
+    0 4px 12px rgba(23, 63, 53, 0.08);
+  animation: heroFloat 5s ease-in-out infinite;
+}
+
+/* Name */
+#hero h2 {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 5px 0 18px;
+  color: var(--ink);
+  font-size: clamp(46px, 7vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -3.5px;
+}
+
+/* Highlighted name */
+#hero .highlight {
+  color: var(--forest);
+  font-weight: 700;
+}
+
+/* Tagline */
+#hero .hero-tagline {
+  max-width: 760px;
+  margin: 12px 0 10px !important;
+  color: var(--forest-light) !important;
+  font-family: Arial, sans-serif;
+  font-size: 17px !important;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Typing role */
+#hero .hero-role {
+  margin: 5px 0 15px !important;
+  color: var(--forest) !important;
+  font-family: Arial, sans-serif;
+  font-size: 20px !important;
+  font-weight: 700;
+}
+
+/* Description */
+#hero .hero-description {
+  max-width: 680px;
+  margin: 12px auto 8px !important;
+  color: var(--muted) !important;
+  font-family: Arial, sans-serif;
+  font-size: 16px !important;
+  line-height: 1.85;
+}
+
+/* Buttons */
+#hero .hero-buttons {
+  margin-top: 18px;
+  gap: 10px;
+}
+
+#hero .button {
+  padding: 13px 23px;
+  margin-top: 8px;
+}
+
+/* Subtle hover on profile */
+#hero img:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 30px 65px rgba(23, 63, 53, 0.20),
+    0 5px 15px rgba(23, 63, 53, 0.10);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  #hero {
+    padding: 70px 20px 85px;
+  }
+
+  #hero::before {
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  #hero img {
+    width: 185px;
+    height: 185px;
+    border-radius: 24px;
+  }
+
+  #hero h2 {
+    font-size: 43px;
+    letter-spacing: -2px;
+  }
+
+  #hero .hero-description {
+    font-size: 15px !important;
+  }
+}
