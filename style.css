@@ -1392,3 +1392,20 @@ header:hover {
   text-shadow: 0 6px 22px rgba(20, 60, 50, 0.16);
   letter-spacing: 0.5px;
 }
+
+/* =================================
+   PREMIUM PROJECT CARD EFFECT
+   ================================= */
+
+#projects .project-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+#projects .project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 45px rgba(20, 60, 50, 0.14);
+  border-color: rgba(20, 60, 50, 0.22);
+}
