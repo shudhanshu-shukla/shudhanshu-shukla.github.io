@@ -1426,3 +1426,20 @@ header:hover {
   box-shadow: 0 14px 30px rgba(20, 60, 50, 0.12);
   border-color: rgba(20, 60, 50, 0.2);
 }
+
+/* =================================
+   PROJECT CARD HOVER EFFECT
+   ================================= */
+
+.project-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(20, 60, 50, 0.14);
+  border-color: rgba(20, 60, 50, 0.22);
+}
