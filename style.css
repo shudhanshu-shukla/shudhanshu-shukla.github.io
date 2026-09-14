@@ -1343,3 +1343,26 @@ section {
   transform: translateY(-8px);
   box-shadow: 0 18px 35px rgba(20, 60, 50, 0.12);
 }
+
+/* =================================
+   PREMIUM FLOATING NAVBAR
+   ================================= */
+
+header {
+  position: sticky;
+  top: 12px;
+  z-index: 1000;
+  width: calc(100% - 40px);
+  margin: 12px auto 0;
+  border: 1px solid rgba(20, 60, 50, 0.10);
+  border-radius: 18px;
+  background: rgba(250, 248, 241, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 30px rgba(20, 60, 50, 0.08);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+header:hover {
+  box-shadow: 0 12px 35px rgba(20, 60, 50, 0.12);
+}
