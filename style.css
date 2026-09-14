@@ -1409,3 +1409,20 @@ header:hover {
   box-shadow: 0 22px 45px rgba(20, 60, 50, 0.14);
   border-color: rgba(20, 60, 50, 0.22);
 }
+
+/* =================================
+   SKILL CARD HOVER EFFECT
+   ================================= */
+
+.skill-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(20, 60, 50, 0.12);
+  border-color: rgba(20, 60, 50, 0.2);
+}
