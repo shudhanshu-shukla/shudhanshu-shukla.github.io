@@ -1326,3 +1326,20 @@ section {
 .button:active {
   transform: translateY(-1px);
 }
+
+/* PREMIUM CARD HOVER */
+
+.skill-card,
+.journey-card,
+.project-card,
+.certification-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover,
+.journey-card:hover,
+.project-card:hover,
+.certification-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(20, 60, 50, 0.12);
+}
