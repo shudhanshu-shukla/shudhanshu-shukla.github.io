@@ -1379,3 +1379,16 @@ header:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 18px 40px rgba(20, 60, 50, 0.18);
 }
+
+/* =================================
+   SUBTLE HERO NAME EFFECT
+   ================================= */
+
+#hero h2 .highlight {
+  transition: text-shadow 0.35s ease, letter-spacing 0.35s ease;
+}
+
+#hero h2 .highlight:hover {
+  text-shadow: 0 6px 22px rgba(20, 60, 50, 0.16);
+  letter-spacing: 0.5px;
+}
