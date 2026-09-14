@@ -1306,3 +1306,23 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ================================
+   PREMIUM BUTTON HOVER EFFECT
+   ================================ */
+
+.button {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(15, 61, 52, 0.18);
+}
+
+.button:active {
+  transform: translateY(-1px);
+}
