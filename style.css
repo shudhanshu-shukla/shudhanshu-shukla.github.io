@@ -1261,3 +1261,30 @@ section > h2 {
         gap: 10px;
     }
 }
+
+/* =================================
+   PREMIUM SCROLL REVEAL
+================================= */
+
+section {
+    animation: sectionReveal 0.8s ease both;
+}
+
+@keyframes sectionReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    section {
+        animation: none;
+    }
+}
