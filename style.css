@@ -1366,3 +1366,16 @@ header {
 header:hover {
   box-shadow: 0 12px 35px rgba(20, 60, 50, 0.12);
 }
+
+/* =================================
+   PREMIUM PROFILE IMAGE EFFECT
+   ================================= */
+
+#hero img {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+#hero img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(20, 60, 50, 0.18);
+}
