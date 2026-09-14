@@ -1443,3 +1443,19 @@ header:hover {
   box-shadow: 0 18px 40px rgba(20, 60, 50, 0.14);
   border-color: rgba(20, 60, 50, 0.22);
 }
+/* =================================
+   BUTTON HOVER EFFECT
+   ================================= */
+
+.hero-buttons a,
+.project-card a {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hero-buttons a:hover,
+.project-card a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(20, 60, 50, 0.18);
+}
