@@ -1605,3 +1605,23 @@ footer p:first-child {
     }
 
 }
+/* =================================
+   FINAL READABILITY POLISH
+================================= */
+
+@media (min-width: 601px) {
+
+    header nav a {
+        font-size: 14px;
+    }
+
+    .project-card p {
+        line-height: 1.7;
+    }
+
+    #about p,
+    #contact p {
+        line-height: 1.75;
+    }
+
+}
