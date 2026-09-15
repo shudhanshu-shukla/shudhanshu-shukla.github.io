@@ -1523,3 +1523,28 @@ header nav a:hover::after {
 .button:active {
     transform: translateY(2px) scale(0.98);
 }
+/* =================================
+   PREMIUM SECTION HEADINGS
+================================= */
+
+section > h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+section > h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 42px;
+    height: 3px;
+    background: var(--forest);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+}
+
+section > h2:hover::after {
+    width: 70px;
+}
