@@ -1474,3 +1474,10 @@ header:hover {
     transition: width 0.08s linear;
     pointer-events: none;
 }
+/* =================================
+   SMOOTH PAGE NAVIGATION
+================================= */
+
+html {
+    scroll-behavior: smooth;
+}
