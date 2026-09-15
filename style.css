@@ -1459,3 +1459,18 @@ header:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 22px rgba(20, 60, 50, 0.18);
 }
+/* =================================
+   SCROLL PROGRESS
+================================= */
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--forest);
+    z-index: 9999;
+    transition: width 0.08s linear;
+    pointer-events: none;
+}
