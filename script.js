@@ -68,3 +68,21 @@ const revealObserver = new IntersectionObserver(
 revealElements.forEach((element) => {
   revealObserver.observe(element);
 });
+// =================================
+// SCROLL PROGRESS
+// =================================
+
+const scrollProgress = document.getElementById("scroll-progress");
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const documentHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const progress =
+    documentHeight > 0
+      ? (scrollTop / documentHeight) * 100
+      : 0;
+
+  scrollProgress.style.width = `${progress}%`;
+});
