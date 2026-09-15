@@ -1,5 +1,7 @@
 # Shudhanshu Shukla — Developer Portfolio
-
+<p align="center">
+  <img src="portfolio-preview.png" alt="Shudhanshu Shukla Developer Portfolio" width="100%">
+</p>
 🌐 **Live Website:** https://shudhanshu-shukla.github.io/
 
 Welcome to my personal developer portfolio.
