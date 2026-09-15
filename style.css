@@ -1548,3 +1548,25 @@ section > h2::after {
 section > h2:hover::after {
     width: 70px;
 }
+/* =================================
+   PREMIUM FOOTER
+================================= */
+
+footer {
+    margin-top: 40px;
+    padding: 32px 20px;
+    text-align: center;
+    background: var(--forest);
+    color: var(--white);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+footer p {
+    margin: 6px 0;
+    color: rgba(255, 253, 248, 0.78);
+}
+
+footer p:first-child {
+    color: var(--white);
+    font-weight: 600;
+}
