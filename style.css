@@ -1570,4 +1570,38 @@ footer p:first-child {
     color: var(--white);
     font-weight: 600;
 }
-y
+
+@media (max-width: 600px) {
+
+    section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    section > h2 {
+        font-size: 28px;
+    }
+
+    .project-card {
+        padding: 22px;
+    }
+
+    .project-card h3 {
+        font-size: 21px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .button {
+        padding: 11px 16px;
+        font-size: 14px;
+    }
+
+}
