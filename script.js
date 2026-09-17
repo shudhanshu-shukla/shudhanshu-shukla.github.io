@@ -88,3 +88,18 @@ window.addEventListener("scroll", () => {
 
   scrollProgress.style.width = `${progress}%`;
 });
+// =================================
+// CURSOR GLOW MOVEMENT
+// =================================
+
+const cursorGlow = document.getElementById("cursor-glow");
+
+document.addEventListener("mousemove", (event) => {
+  cursorGlow.style.left = `${event.clientX}px`;
+  cursorGlow.style.top = `${event.clientY}px`;
+  cursorGlow.style.opacity = "1";
+});
+
+document.addEventListener("mouseleave", () => {
+  cursorGlow.style.opacity = "0";
+});
