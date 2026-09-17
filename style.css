@@ -1811,7 +1811,34 @@ body {
   from {
     opacity: 0;
   }
+/* =================================
+   MOBILE OPTIMIZATION
+================================= */
 
+@media (max-width: 768px) {
+
+  /* Disable cursor glow on mobile */
+  #cursor-glow {
+    display: none;
+  }
+
+  /* Prevent 3D card movement on touchscreens */
+  .project-card {
+    transform: none !important;
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Keep project content comfortable */
+  .project-card p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+}
   to {
     opacity: 1;
   }
