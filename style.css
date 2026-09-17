@@ -1843,3 +1843,18 @@ body {
     opacity: 1;
   }
 }
+/* =================================
+   CINEMATIC SCROLL PROGRESS
+================================= */
+
+#scroll-progress {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--forest-dark),
+    var(--forest-light),
+    var(--sage)
+  );
+  box-shadow: 0 0 10px rgba(45, 102, 87, 0.35);
+  transition: width 0.08s linear;
+}
