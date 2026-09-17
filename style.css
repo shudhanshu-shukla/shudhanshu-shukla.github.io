@@ -1742,3 +1742,33 @@ footer p:first-child {
               box-shadow 0.3s ease;
   will-change: transform;
 }
+/* =================================
+   PROJECT CARD SHINE
+================================= */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.project-card:hover::before {
+  left: 150%;
+}
