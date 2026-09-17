@@ -1625,3 +1625,90 @@ footer p:first-child {
     }
 
 }
+/* =================================
+   CINEMATIC HERO ENTRANCE
+================================= */
+
+@keyframes cinematicFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cinematicImageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cinematicGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+/* Profile entrance */
+#hero img {
+  animation:
+    cinematicImageReveal 1s cubic-bezier(0.22, 1, 0.36, 1) both,
+    heroFloat 5s ease-in-out 1s infinite;
+}
+
+/* Hero heading */
+#hero h2 {
+  animation: cinematicFadeUp 0.9s 0.15s ease both;
+}
+
+/* Hero text */
+#hero .hero-tagline {
+  animation: cinematicFadeUp 0.9s 0.3s ease both;
+}
+
+#hero .hero-role {
+  animation: cinematicFadeUp 0.9s 0.4s ease both;
+}
+
+#hero .hero-description {
+  animation: cinematicFadeUp 0.9s 0.5s ease both;
+}
+
+/* Hero buttons */
+#hero .hero-buttons {
+  animation: cinematicFadeUp 0.9s 0.65s ease both;
+}
+
+/* Background glow */
+#hero::after {
+  animation: cinematicGlow 8s ease-in-out infinite;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  #hero img,
+  #hero h2,
+  #hero .hero-tagline,
+  #hero .hero-role,
+  #hero .hero-description,
+  #hero .hero-buttons,
+  #hero::after {
+    animation: none;
+  }
+}
