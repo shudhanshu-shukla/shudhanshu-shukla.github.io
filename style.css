@@ -1732,3 +1732,13 @@ footer p:first-child {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+/* =================================
+   SMOOTH 3D CARD EFFECT
+================================= */
+
+.project-card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out,
+              box-shadow 0.3s ease;
+  will-change: transform;
+}
