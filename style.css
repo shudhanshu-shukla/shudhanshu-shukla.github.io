@@ -1712,3 +1712,23 @@ footer p:first-child {
     animation: none;
   }
 }
+/* =================================
+   CURSOR GLOW EFFECT
+================================= */
+
+#cursor-glow {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(78, 121, 90, 0.15),
+    transparent 70%
+  );
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
