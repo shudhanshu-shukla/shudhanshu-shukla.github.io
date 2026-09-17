@@ -1799,3 +1799,20 @@ section h2 {
 section:hover h2 {
   transform: translateX(6px);
 }
+/* =================================
+   CINEMATIC PAGE LOAD
+================================= */
+
+body {
+  animation: pageLoad 1.2s ease both;
+}
+
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
