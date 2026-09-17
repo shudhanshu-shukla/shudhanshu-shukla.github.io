@@ -47,10 +47,12 @@ const revealElements = document.querySelectorAll(
   "section, .project-card, .skill-card, .journey-card, .certification-card"
 );
 
-revealElements.forEach((element) => {
+revealElements.forEach((element, index) => {
   element.classList.add("reveal");
-});
 
+  // Cinematic stagger effect
+  element.style.transitionDelay = `${index * 0.08}s`;
+});
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
