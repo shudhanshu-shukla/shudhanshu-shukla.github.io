@@ -1788,3 +1788,14 @@ button:hover,
 .project-card:hover::before {
   left: 150%;
 }
+/* =================================
+   CINEMATIC SECTION HEADINGS
+================================= */
+
+section h2 {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+section:hover h2 {
+  transform: translateX(6px);
+}
