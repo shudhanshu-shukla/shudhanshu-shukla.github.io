@@ -1858,3 +1858,116 @@ body {
   box-shadow: 0 0 10px rgba(45, 102, 87, 0.35);
   transition: width 0.08s linear;
 }
+/* =================================
+   HERO 3D ORB
+================================= */
+
+#hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-3d-orb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 0;
+  animation: orbFloat 6s ease-in-out infinite;
+}
+
+.orb-core {
+  position: absolute;
+  inset: 55px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(78, 121, 90, 0.45),
+    rgba(20, 70, 55, 0.15),
+    transparent 70%
+  );
+  box-shadow:
+    0 0 35px rgba(78, 121, 90, 0.25),
+    inset 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+.orb-ring {
+  position: absolute;
+  inset: 20px;
+  border: 1px solid rgba(45, 102, 87, 0.25);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+
+.ring-1 {
+  transform: rotateX(65deg) rotateZ(20deg);
+  animation: ringRotate1 8s linear infinite;
+}
+
+.ring-2 {
+  inset: 35px;
+  transform: rotateY(65deg) rotateZ(-20deg);
+  animation: ringRotate2 10s linear infinite reverse;
+}
+
+.ring-3 {
+  inset: 5px;
+  transform: rotateX(70deg) rotateY(25deg);
+  animation: ringRotate3 12s linear infinite;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-18px);
+  }
+}
+
+@keyframes ringRotate1 {
+  from {
+    transform: rotateX(65deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(65deg) rotateZ(360deg);
+  }
+}
+
+@keyframes ringRotate2 {
+  from {
+    transform: rotateY(65deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateY(65deg) rotateZ(360deg);
+  }
+}
+
+@keyframes ringRotate3 {
+  from {
+    transform: rotateX(70deg) rotateY(25deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(70deg) rotateY(25deg) rotateZ(360deg);
+  }
+}
+
+/* Keep Hero content above the orb */
+#hero > *:not(.hero-3d-orb) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .hero-3d-orb {
+    width: 190px;
+    height: 190px;
+    opacity: 0.55;
+  }
+}
