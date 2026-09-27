@@ -148,3 +148,55 @@ if (heroOrb) {
       "translate(-50%, -50%)";
   });
 }
+/* =================================
+   HERO DEPTH PARALLAX
+================================= */
+
+const heroSection = document.querySelector("#hero");
+
+if (heroSection) {
+  const heroTitle = heroSection.querySelector("h2");
+  const heroTagline = heroSection.querySelector(".hero-tagline");
+  const heroRole = heroSection.querySelector(".hero-role");
+  const heroDescription = heroSection.querySelector(".hero-description");
+  const heroButtons = heroSection.querySelector(".hero-buttons");
+
+  document.addEventListener("mousemove", (event) => {
+    const x = (event.clientX / window.innerWidth - 0.5) * 2;
+    const y = (event.clientY / window.innerHeight - 0.5) * 2;
+
+    if (heroTitle) {
+      heroTitle.style.transform =
+        `translate3d(${x * 5}px, ${y * 3}px, 0)`;
+    }
+
+    if (heroTagline) {
+      heroTagline.style.transform =
+        `translate3d(${x * 8}px, ${y * 5}px, 0)`;
+    }
+
+    if (heroRole) {
+      heroRole.style.transform =
+        `translate3d(${x * 10}px, ${y * 6}px, 0)`;
+    }
+
+    if (heroDescription) {
+      heroDescription.style.transform =
+        `translate3d(${x * 4}px, ${y * 3}px, 0)`;
+    }
+
+    if (heroButtons) {
+      heroButtons.style.transform =
+        `translate3d(${x * 7}px, ${y * 4}px, 0)`;
+    }
+  });
+
+  document.addEventListener("mouseleave", () => {
+    [heroTitle, heroTagline, heroRole, heroDescription, heroButtons]
+      .forEach((element) => {
+        if (element) {
+          element.style.transform = "translate3d(0, 0, 0)";
+        }
+      });
+  });
+}
