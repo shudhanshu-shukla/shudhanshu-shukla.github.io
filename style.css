@@ -1971,3 +1971,20 @@ body {
     opacity: 0.55;
   }
 }
+/* =================================
+   CINEMATIC HERO PARALLAX SMOOTHING
+================================= */
+
+#hero h2,
+#hero .hero-tagline,
+#hero .hero-role,
+#hero .hero-description,
+#hero .hero-buttons {
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+/* Keep the 3D orb responsive */
+.hero-3d-orb {
+  will-change: transform;
+}
