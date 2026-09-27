@@ -2005,3 +2005,45 @@ body {
 .hero-3d-orb {
   will-change: transform;
 }
+/* =================================
+   3D PROFILE IMAGE
+================================= */
+
+.hero-image-3d {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.25s ease-out, filter 0.25s ease-out;
+  will-change: transform;
+  z-index: 2;
+}
+
+.hero-image-3d::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: rgba(45, 102, 87, 0.18);
+  filter: blur(25px);
+  transform: translateZ(-35px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-image-3d img {
+  display: block;
+  transform: translateZ(25px);
+  backface-visibility: hidden;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-image-3d {
+    transform: none !important;
+  }
+
+  .hero-image-3d::after {
+    opacity: 0.6;
+  }
+}
