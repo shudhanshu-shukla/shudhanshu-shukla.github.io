@@ -200,3 +200,28 @@ if (heroSection) {
       });
   });
 }
+/* =================================
+   INTERACTIVE 3D PROFILE TILT
+================================= */
+
+const heroImage3D = document.querySelector(".hero-image-3d");
+
+if (heroImage3D) {
+  document.addEventListener("mousemove", (event) => {
+    const rect = heroImage3D.getBoundingClientRect();
+
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const rotateY = ((event.clientX - centerX) / rect.width) * 10;
+    const rotateX = ((event.clientY - centerY) / rect.height) * -10;
+
+    heroImage3D.style.transform =
+      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  document.addEventListener("mouseleave", () => {
+    heroImage3D.style.transform =
+      "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+  });
+}
