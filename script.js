@@ -128,3 +128,23 @@ projectCards.forEach((card) => {
       "perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)";
   });
 });
+/* =================================
+   3D HERO ORB MOUSE INTERACTION
+================================= */
+
+const heroOrb = document.querySelector(".hero-3d-orb");
+
+if (heroOrb) {
+  document.addEventListener("mousemove", (event) => {
+    const x = (event.clientX / window.innerWidth - 0.5) * 2;
+    const y = (event.clientY / window.innerHeight - 0.5) * 2;
+
+    heroOrb.style.transform =
+      `translate(-50%, -50%) translate(${x * 18}px, ${y * 18}px) rotateX(${y * -8}deg) rotateY(${x * 8}deg)`;
+  });
+
+  document.addEventListener("mouseleave", () => {
+    heroOrb.style.transform =
+      "translate(-50%, -50%)";
+  });
+}
