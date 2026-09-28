@@ -225,3 +225,32 @@ if (heroImage3D) {
       "perspective(1000px) rotateX(0deg) rotateY(0deg)";
   });
 }
+/* =================================
+   3D PROFILE LIGHT TRACKING
+================================= */
+
+const profileLight = document.querySelector(".hero-image-3d");
+
+if (profileLight) {
+  profileLight.addEventListener("mousemove", (event) => {
+    const rect = profileLight.getBoundingClientRect();
+
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+    profileLight.style.setProperty("--light-x", `${x}%`);
+    profileLight.style.setProperty("--light-y", `${y}%`);
+    profileLight.style.setProperty("--light-opacity", "1");
+
+    profileLight.style.setProperty("filter", "brightness(1.03)");
+  });
+
+  profileLight.addEventListener("mouseenter", () => {
+    profileLight.style.setProperty("--light-opacity", "1");
+  });
+
+  profileLight.addEventListener("mouseleave", () => {
+    profileLight.style.setProperty("--light-opacity", "0");
+    profileLight.style.setProperty("filter", "brightness(1)");
+  });
+}
