@@ -254,3 +254,27 @@ if (profileLight) {
     profileLight.style.setProperty("filter", "brightness(1)");
   });
 }
+/* =================================
+   3D GLASS REFLECTION TRACKING
+================================= */
+
+const glassProfile = document.querySelector(".hero-image-3d");
+
+if (glassProfile) {
+  glassProfile.addEventListener("mousemove", (event) => {
+    const rect = glassProfile.getBoundingClientRect();
+
+    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 18;
+    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 18;
+
+    glassProfile.style.setProperty("--glass-x", `${x}px`);
+    glassProfile.style.setProperty("--glass-y", `${y}px`);
+    glassProfile.style.setProperty("--glass-opacity", "1");
+  });
+
+  glassProfile.addEventListener("mouseleave", () => {
+    glassProfile.style.setProperty("--glass-x", "0px");
+    glassProfile.style.setProperty("--glass-y", "0px");
+    glassProfile.style.setProperty("--glass-opacity", "0");
+  });
+}
