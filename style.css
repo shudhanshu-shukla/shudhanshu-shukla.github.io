@@ -2047,3 +2047,33 @@ body {
     opacity: 0.6;
   }
 }
+/* =================================
+   3D PROFILE LIGHT REFLECTION
+================================= */
+
+.hero-image-3d {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image-3d::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  left: var(--light-x, 50%);
+  top: var(--light-y, 20%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.08) 35%,
+    transparent 70%
+  );
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 5;
+  opacity: var(--light-opacity, 0);
+  transition: opacity 0.25s ease;
+}
