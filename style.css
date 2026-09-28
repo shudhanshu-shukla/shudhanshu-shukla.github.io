@@ -2108,3 +2108,30 @@ body {
   z-index: 6;
   transition: opacity 0.25s ease;
 }
+/* =================================
+   3D PROJECT CARD LIGHT
+================================= */
+
+.project-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 5;
+
+  background: radial-gradient(
+    circle 100px at var(--card-light-x, 50%) var(--card-light-y, 50%),
+    rgba(255, 255, 255, 0.20),
+    transparent 70%
+  );
+
+  opacity: var(--card-light-opacity, 0);
+  transition: opacity 0.25s ease;
+}
