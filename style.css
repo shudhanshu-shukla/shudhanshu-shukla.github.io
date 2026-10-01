@@ -2135,3 +2135,38 @@ body {
   opacity: var(--card-light-opacity, 0);
   transition: opacity 0.25s ease;
 }
+/* =================================
+   STEP 24.12 — 3D CARD DEPTH
+================================= */
+
+.project-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Give the content a subtle floating depth */
+.project-card > h3,
+.project-card > .badge,
+.project-card > p,
+.project-card > .founder,
+.project-card > .tech,
+.project-card > .button,
+.project-card > a {
+  transform: translateZ(18px);
+  transition: transform 0.35s ease;
+}
+
+/* Stronger depth while hovering */
+.project-card:hover > h3 {
+  transform: translateZ(28px);
+}
+
+.project-card:hover > .badge {
+  transform: translateZ(24px);
+}
+
+.project-card:hover > p,
+.project-card:hover > .founder,
+.project-card:hover > .tech {
+  transform: translateZ(20px);
+}
