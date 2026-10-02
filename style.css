@@ -2170,3 +2170,39 @@ body {
 .project-card:hover > .tech {
   transform: translateZ(20px);
 }
+/* =================================
+   STEP 24.13 — PARSEC PREMIUM GLOW
+================================= */
+
+.parsec-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.parsec-card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(78, 121, 90, 0.18),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.parsec-card:hover::after {
+  opacity: 1;
+}
+
+.parsec-card .parsec-logo {
+  transition: transform 0.5s ease;
+}
+
+.parsec-card:hover .parsec-logo {
+  transform: translateZ(30px) scale(1.06);
+}
