@@ -1,281 +1,600 @@
-const words = [
-  "Software Developer",
-  "AI Enthusiast",
-  "JEE Aspirant",
-  "Building StudyLocker"
-];
+/* =========================================================
+   SHUDHANSHU SHUKLA — PORTFOLIO
+   3D V2 INTERACTION ENGINE
+   ========================================================= */
 
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+(() => {
+  "use strict";
 
-const typingElement = document.getElementById("typing");
+  /* =======================================================
+     DEVICE / MOTION DETECTION
+     ======================================================= */
 
-function type() {
-  const currentWord = words[wordIndex];
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-  if (isDeleting) {
-    typingElement.textContent = currentWord.substring(0, charIndex--);
-  } else {
-    typingElement.textContent = currentWord.substring(0, charIndex++);
+  const finePointer = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
+  ).matches;
+
+  const canUse3D = finePointer && !reduceMotion;
+
+
+  /* =======================================================
+     TYPING EFFECT
+     ======================================================= */
+
+  const typingElement = document.getElementById("typing");
+
+  if (typingElement && !reduceMotion) {
+    const words = [
+      "Software Developer",
+      "AI Enthusiast",
+      "JEE Aspirant",
+      "Building StudyLocker"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeText() {
+      const word = words[wordIndex];
+
+      if (deleting) {
+        charIndex--;
+      } else {
+        charIndex++;
+      }
+
+      typingElement.textContent = word.substring(0, charIndex);
+
+      let speed = deleting ? 55 : 105;
+
+      if (!deleting && charIndex >= word.length) {
+        speed = 1700;
+        deleting = true;
+      }
+
+      if (deleting && charIndex <= 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        speed = 450;
+      }
+
+      window.setTimeout(typeText, speed);
+    }
+
+    typeText();
   }
 
-  let speed = isDeleting ? 60 : 120;
 
-  if (!isDeleting && charIndex === currentWord.length + 1) {
-    speed = 1800;
-    isDeleting = true;
-  }
+  /* =======================================================
+     SCROLL REVEAL
+     ======================================================= */
 
-  if (isDeleting && charIndex < 0) {
-    isDeleting = false;
-    wordIndex = (wordIndex + 1) % words.length;
-    speed = 400;
-  }
+  const revealElements = document.querySelectorAll(
+    "section, .project-card, .skill-card"
+  );
 
-  setTimeout(type, speed);
-}
+  if (revealElements.length) {
+    revealElements.forEach((element, index) => {
+      element.classList.add("reveal");
 
-type();
-
-
-// ================================
-// SCROLL REVEAL ANIMATION
-// ================================
-
-const revealElements = document.querySelectorAll(
-  "section, .project-card, .skill-card, .journey-card, .certification-card"
-);
-
-revealElements.forEach((element, index) => {
-  element.classList.add("reveal");
-
-  // Cinematic stagger effect
-  element.style.transitionDelay = `${index * 0.08}s`;
-});
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
+      if (!reduceMotion) {
+        element.style.transitionDelay =
+          `${Math.min(index * 0.06, 0.45)}s`;
       }
     });
-  },
-  {
-    threshold: 0.12
-  }
-);
 
-revealElements.forEach((element) => {
-  revealObserver.observe(element);
-});
-// =================================
-// SCROLL PROGRESS
-// =================================
-
-const scrollProgress = document.getElementById("scroll-progress");
-
-window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY;
-  const documentHeight =
-    document.documentElement.scrollHeight - window.innerHeight;
-
-  const progress =
-    documentHeight > 0
-      ? (scrollTop / documentHeight) * 100
-      : 0;
-
-  scrollProgress.style.width = `${progress}%`;
-});
-// =================================
-// CURSOR GLOW MOVEMENT
-// =================================
-
-const cursorGlow = document.getElementById("cursor-glow");
-
-document.addEventListener("mousemove", (event) => {
-  cursorGlow.style.left = `${event.clientX}px`;
-  cursorGlow.style.top = `${event.clientY}px`;
-  cursorGlow.style.opacity = "1";
-});
-
-document.addEventListener("mouseleave", () => {
-  cursorGlow.style.opacity = "0";
-});
-// =================================
-// 3D PROJECT CARD TILT
-// =================================
-
-const projectCards = document.querySelectorAll(".project-card");
-
-projectCards.forEach((card) => {
-  card.addEventListener("mousemove", (event) => {
-    const rect = card.getBoundingClientRect();
-
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    const rotateX = ((y / rect.height) - 0.5) * -8;
-    const rotateY = ((x / rect.width) - 0.5) * 8;
-
-    card.style.transform =
-      `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.transform =
-      "perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)";
-  });
-});
-/* =================================
-   3D HERO ORB MOUSE INTERACTION
-================================= */
-
-const heroOrb = document.querySelector(".hero-3d-orb");
-
-if (heroOrb) {
-  document.addEventListener("mousemove", (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5) * 2;
-    const y = (event.clientY / window.innerHeight - 0.5) * 2;
-
-    heroOrb.style.transform =
-      `translate(-50%, -50%) translate(${x * 18}px, ${y * 18}px) rotateX(${y * -8}deg) rotateY(${x * 8}deg)`;
-  });
-
-  document.addEventListener("mouseleave", () => {
-    heroOrb.style.transform =
-      "translate(-50%, -50%)";
-  });
-}
-/* =================================
-   HERO DEPTH PARALLAX
-================================= */
-
-const heroSection = document.querySelector("#hero");
-
-if (heroSection) {
-  const heroTitle = heroSection.querySelector("h2");
-  const heroTagline = heroSection.querySelector(".hero-tagline");
-  const heroRole = heroSection.querySelector(".hero-role");
-  const heroDescription = heroSection.querySelector(".hero-description");
-  const heroButtons = heroSection.querySelector(".hero-buttons");
-
-  document.addEventListener("mousemove", (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5) * 2;
-    const y = (event.clientY / window.innerHeight - 0.5) * 2;
-
-    if (heroTitle) {
-      heroTitle.style.transform =
-        `translate3d(${x * 5}px, ${y * 3}px, 0)`;
-    }
-
-    if (heroTagline) {
-      heroTagline.style.transform =
-        `translate3d(${x * 8}px, ${y * 5}px, 0)`;
-    }
-
-    if (heroRole) {
-      heroRole.style.transform =
-        `translate3d(${x * 10}px, ${y * 6}px, 0)`;
-    }
-
-    if (heroDescription) {
-      heroDescription.style.transform =
-        `translate3d(${x * 4}px, ${y * 3}px, 0)`;
-    }
-
-    if (heroButtons) {
-      heroButtons.style.transform =
-        `translate3d(${x * 7}px, ${y * 4}px, 0)`;
-    }
-  });
-
-  document.addEventListener("mouseleave", () => {
-    [heroTitle, heroTagline, heroRole, heroDescription, heroButtons]
-      .forEach((element) => {
-        if (element) {
-          element.style.transform = "translate3d(0, 0, 0)";
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -40px 0px"
         }
+      );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
       });
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+  }
+
+
+  /* =======================================================
+     SCROLL PROGRESS
+     ======================================================= */
+
+  const scrollProgress =
+    document.getElementById("scroll-progress");
+
+  if (scrollProgress) {
+    let scrollTicking = false;
+
+    function updateScrollProgress() {
+      const scrollTop = window.scrollY;
+
+      const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+      const progress =
+        documentHeight > 0
+          ? (scrollTop / documentHeight) * 100
+          : 0;
+
+      scrollProgress.style.width =
+        `${Math.min(progress, 100)}%`;
+
+      scrollTicking = false;
+    }
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!scrollTicking) {
+          window.requestAnimationFrame(
+            updateScrollProgress
+          );
+
+          scrollTicking = true;
+        }
+      },
+      { passive: true }
+    );
+
+    updateScrollProgress();
+  }
+
+
+  /* =======================================================
+     POINTER ENGINE
+     One pointer listener controls the entire 3D system.
+     ======================================================= */
+
+  if (!canUse3D) {
+    return;
+  }
+
+  const hero = document.getElementById("hero");
+  const heroOrb =
+    document.querySelector(".hero-3d-orb");
+  const heroProfile =
+    document.querySelector(".hero-image-3d");
+  const cursorGlow =
+    document.getElementById("cursor-glow");
+
+  const projectCards =
+    document.querySelectorAll(".project-card");
+
+  const skillCards =
+    document.querySelectorAll(".skill-card");
+
+
+  let pointerX = 0;
+  let pointerY = 0;
+
+  let animationFrame = null;
+
+  let activeCard = null;
+  let activeSkill = null;
+  let profileActive = false;
+
+
+  /* =======================================================
+     POINTER POSITION
+     ======================================================= */
+
+  function handlePointerMove(event) {
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+
+    if (!animationFrame) {
+      animationFrame =
+        window.requestAnimationFrame(update3DScene);
+    }
+  }
+
+
+  /* =======================================================
+     3D SCENE UPDATE
+     ======================================================= */
+
+  function update3DScene() {
+    animationFrame = null;
+
+    /* -----------------------------------------------
+       Cursor glow
+       ----------------------------------------------- */
+
+    if (cursorGlow) {
+      cursorGlow.style.setProperty(
+        "--cursor-x",
+        `${pointerX}px`
+      );
+
+      cursorGlow.style.setProperty(
+        "--cursor-y",
+        `${pointerY}px`
+      );
+
+      cursorGlow.style.opacity = "1";
+    }
+
+
+    /* -----------------------------------------------
+       Hero orb
+       ----------------------------------------------- */
+
+    if (heroOrb) {
+      const x =
+        (pointerX / window.innerWidth - 0.5) * 2;
+
+      const y =
+        (pointerY / window.innerHeight - 0.5) * 2;
+
+      heroOrb.style.setProperty(
+        "--orb-x",
+        `${x * 22}px`
+      );
+
+      heroOrb.style.setProperty(
+        "--orb-y",
+        `${y * 18}px`
+      );
+    }
+
+
+    /* -----------------------------------------------
+       Hero background glow
+       ----------------------------------------------- */
+
+    if (hero) {
+      const x =
+        (pointerX / window.innerWidth - 0.5) * 2;
+
+      const y =
+        (pointerY / window.innerHeight - 0.5) * 2;
+
+      hero.style.setProperty(
+        "--hero-glow-x",
+        `${x * 25}px`
+      );
+
+      hero.style.setProperty(
+        "--hero-glow-y",
+        `${y * 20}px`
+      );
+    }
+
+
+    /* -----------------------------------------------
+       Profile 3D tilt
+       ----------------------------------------------- */
+
+    if (heroProfile && profileActive) {
+      const rect =
+        heroProfile.getBoundingClientRect();
+
+      const centerX =
+        rect.left + rect.width / 2;
+
+      const centerY =
+        rect.top + rect.height / 2;
+
+      const rotateY =
+        ((pointerX - centerX) / rect.width) * 8;
+
+      const rotateX =
+        ((pointerY - centerY) / rect.height) * -8;
+
+      heroProfile.style.setProperty(
+        "--profile-rx",
+        `${rotateX}deg`
+      );
+
+      heroProfile.style.setProperty(
+        "--profile-ry",
+        `${rotateY}deg`
+      );
+
+      heroProfile.style.setProperty(
+        "--light-x",
+        `${((pointerX - rect.left) / rect.width) * 100}%`
+      );
+
+      heroProfile.style.setProperty(
+        "--light-y",
+        `${((pointerY - rect.top) / rect.height) * 100}%`
+      );
+
+      heroProfile.style.setProperty(
+        "--light-opacity",
+        "1"
+      );
+
+      heroProfile.style.setProperty(
+        "--glass-x",
+        `${rotateY * 1.5}px`
+      );
+
+      heroProfile.style.setProperty(
+        "--glass-y",
+        `${rotateX * -1.5}px`
+      );
+
+      heroProfile.style.setProperty(
+        "--glass-opacity",
+        "1"
+      );
+    }
+
+
+    /* -----------------------------------------------
+       Active project card
+       ----------------------------------------------- */
+
+    if (activeCard) {
+      applyCardTilt(activeCard);
+    }
+
+
+    /* -----------------------------------------------
+       Active skill card
+       ----------------------------------------------- */
+
+    if (activeSkill) {
+      applySkillTilt(activeSkill);
+    }
+  }
+
+
+  /* =======================================================
+     PROJECT CARD TILT
+     ======================================================= */
+
+  function applyCardTilt(card) {
+    const rect =
+      card.getBoundingClientRect();
+
+    const x =
+      (pointerX - rect.left) / rect.width;
+
+    const y =
+      (pointerY - rect.top) / rect.height;
+
+    const rotateY =
+      (x - 0.5) * 10;
+
+    const rotateX =
+      (y - 0.5) * -10;
+
+    card.style.setProperty(
+      "--card-rx",
+      `${rotateX}deg`
+    );
+
+    card.style.setProperty(
+      "--card-ry",
+      `${rotateY}deg`
+    );
+
+    card.style.setProperty(
+      "--card-light-x",
+      `${x * 100}%`
+    );
+
+    card.style.setProperty(
+      "--card-light-y",
+      `${y * 100}%`
+    );
+
+    card.style.setProperty(
+      "--card-light-opacity",
+      "1"
+    );
+
+    card.style.setProperty(
+      "--card-y",
+      "-3px"
+    );
+  }
+
+
+  /* =======================================================
+     PROJECT CARD EVENTS
+     ======================================================= */
+
+  projectCards.forEach((card) => {
+    card.addEventListener("pointerenter", () => {
+      activeCard = card;
+    });
+
+    card.addEventListener("pointerleave", () => {
+      if (activeCard === card) {
+        activeCard = null;
+      }
+
+      card.style.setProperty("--card-rx", "0deg");
+      card.style.setProperty("--card-ry", "0deg");
+      card.style.setProperty("--card-y", "0px");
+      card.style.setProperty(
+        "--card-light-opacity",
+        "0"
+      );
+    });
   });
-}
-/* =================================
-   INTERACTIVE 3D PROFILE TILT
-================================= */
 
-const heroImage3D = document.querySelector(".hero-image-3d");
 
-if (heroImage3D) {
-  document.addEventListener("mousemove", (event) => {
-    const rect = heroImage3D.getBoundingClientRect();
+  /* =======================================================
+     SKILL CARD TILT
+     ======================================================= */
 
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+  function applySkillTilt(card) {
+    const rect =
+      card.getBoundingClientRect();
 
-    const rotateY = ((event.clientX - centerX) / rect.width) * 10;
-    const rotateX = ((event.clientY - centerY) / rect.height) * -10;
+    const x =
+      (pointerX - rect.left) / rect.width;
 
-    heroImage3D.style.transform =
-      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    const y =
+      (pointerY - rect.top) / rect.height;
+
+    const rotateY =
+      (x - 0.5) * 7;
+
+    const rotateX =
+      (y - 0.5) * -7;
+
+    card.style.setProperty(
+      "--skill-rx",
+      `${rotateX}deg`
+    );
+
+    card.style.setProperty(
+      "--skill-ry",
+      `${rotateY}deg`
+    );
+
+    card.style.setProperty(
+      "--skill-x",
+      `${x * 100}%`
+    );
+
+    card.style.setProperty(
+      "--skill-y",
+      `${y * 100}%`
+    );
+
+    card.style.setProperty(
+      "--skill-light",
+      "1"
+    );
+  }
+
+
+  /* =======================================================
+     SKILL CARD EVENTS
+     ======================================================= */
+
+  skillCards.forEach((card) => {
+    card.addEventListener("pointerenter", () => {
+      activeSkill = card;
+    });
+
+    card.addEventListener("pointerleave", () => {
+      if (activeSkill === card) {
+        activeSkill = null;
+      }
+
+      card.style.setProperty(
+        "--skill-rx",
+        "0deg"
+      );
+
+      card.style.setProperty(
+        "--skill-ry",
+        "0deg"
+      );
+
+      card.style.setProperty(
+        "--skill-light",
+        "0"
+      );
+    });
   });
 
-  document.addEventListener("mouseleave", () => {
-    heroImage3D.style.transform =
-      "perspective(1000px) rotateX(0deg) rotateY(0deg)";
-  });
-}
-/* =================================
-   3D PROFILE LIGHT TRACKING
-================================= */
 
-const profileLight = document.querySelector(".hero-image-3d");
+  /* =======================================================
+     PROFILE EVENTS
+     ======================================================= */
 
-if (profileLight) {
-  profileLight.addEventListener("mousemove", (event) => {
-    const rect = profileLight.getBoundingClientRect();
+  if (heroProfile) {
+    heroProfile.addEventListener(
+      "pointerenter",
+      () => {
+        profileActive = true;
+      }
+    );
 
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    heroProfile.addEventListener(
+      "pointerleave",
+      () => {
+        profileActive = false;
 
-    profileLight.style.setProperty("--light-x", `${x}%`);
-    profileLight.style.setProperty("--light-y", `${y}%`);
-    profileLight.style.setProperty("--light-opacity", "1");
+        heroProfile.style.setProperty(
+          "--profile-rx",
+          "0deg"
+        );
 
-    profileLight.style.setProperty("filter", "brightness(1.03)");
-  });
+        heroProfile.style.setProperty(
+          "--profile-ry",
+          "0deg"
+        );
 
-  profileLight.addEventListener("mouseenter", () => {
-    profileLight.style.setProperty("--light-opacity", "1");
-  });
+        heroProfile.style.setProperty(
+          "--light-opacity",
+          "0"
+        );
 
-  profileLight.addEventListener("mouseleave", () => {
-    profileLight.style.setProperty("--light-opacity", "0");
-    profileLight.style.setProperty("filter", "brightness(1)");
-  });
-}
-/* =================================
-   3D GLASS REFLECTION TRACKING
-================================= */
+        heroProfile.style.setProperty(
+          "--glass-opacity",
+          "0"
+        );
+      }
+    );
+  }
 
-const glassProfile = document.querySelector(".hero-image-3d");
 
-if (glassProfile) {
-  glassProfile.addEventListener("mousemove", (event) => {
-    const rect = glassProfile.getBoundingClientRect();
+  /* =======================================================
+     GLOBAL POINTER LISTENER
+     ======================================================= */
 
-    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 18;
-    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 18;
+  document.addEventListener(
+    "pointermove",
+    handlePointerMove,
+    { passive: true }
+  );
 
-    glassProfile.style.setProperty("--glass-x", `${x}px`);
-    glassProfile.style.setProperty("--glass-y", `${y}px`);
-    glassProfile.style.setProperty("--glass-opacity", "1");
-  });
 
-  glassProfile.addEventListener("mouseleave", () => {
-    glassProfile.style.setProperty("--glass-x", "0px");
-    glassProfile.style.setProperty("--glass-y", "0px");
-    glassProfile.style.setProperty("--glass-opacity", "0");
-  });
-}
+  /* =======================================================
+     POINTER LEAVE WINDOW
+     ======================================================= */
 
+  document.addEventListener(
+    "pointerout",
+    (event) => {
+      if (event.relatedTarget !== null) {
+        return;
+      }
+
+      if (cursorGlow) {
+        cursorGlow.style.opacity = "0";
+      }
+    }
+  );
+
+
+  /* =======================================================
+     INITIALIZE
+     ======================================================= */
+
+  if (cursorGlow) {
+    cursorGlow.style.opacity = "0";
+  }
+
+})();
