@@ -378,10 +378,10 @@
       (pointerY - rect.top) / rect.height;
 
     const rotateY =
-      (x - 0.5) * 10;
+      (x - 0.5) * 14;
 
     const rotateX =
-      (y - 0.5) * -10;
+      (y - 0.5) * -14;
 
     card.style.setProperty(
       "--card-rx",
@@ -410,7 +410,7 @@
 
     card.style.setProperty(
       "--card-y",
-      "-3px"
+      "-6px"
     );
   }
 
