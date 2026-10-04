@@ -2248,3 +2248,28 @@ body {
     transform: none;
   }
 }
+/* =================================
+   STEP 24.15 — PREMIUM CARD BORDER
+================================= */
+
+.project-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(78, 121, 90, 0);
+  pointer-events: none;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover::after {
+    border-color: rgba(78, 121, 90, 0.35);
+    box-shadow: inset 0 0 25px rgba(78, 121, 90, 0.06);
+  }
+}
