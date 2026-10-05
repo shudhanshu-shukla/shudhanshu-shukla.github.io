@@ -1186,3 +1186,117 @@ footer { width: 100%; max-width: 1120px; margin: 0 auto; padding: 35px 28px 45px
 footer p { width: 100%; margin: 0; text-align: center; color: var(--muted); font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6; } 
 .parsec-header { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; } 
 .parsec-logo { width: 82px; height: 82px; flex: 0 0 82px; object-fit: contain; display: block; border-radius: 18px; }
+/* =========================================
+   24.20.1 — PARSEC FLAGSHIP SHOWCASE
+========================================= */
+
+.parsec-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Animated ambient glow */
+.parsec-card::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  top: -150px;
+  right: -120px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(78, 121, 90, 0.20),
+    transparent 70%
+  );
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: -1;
+  animation: parsecAmbientGlow 6s ease-in-out infinite;
+}
+
+/* Premium inner glow */
+.parsec-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(78, 121, 90, 0.18);
+  box-shadow:
+    inset 0 0 45px rgba(78, 121, 90, 0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep Parsec content above effects */
+.parsec-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo depth */
+.parsec-card .parsec-logo {
+  transform-style: preserve-3d;
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .parsec-card:hover .parsec-logo {
+    transform: translateZ(35px) rotate(-2deg) scale(1.05);
+    box-shadow:
+      0 18px 35px rgba(23, 63, 53, 0.18),
+      0 0 25px rgba(78, 121, 90, 0.12);
+  }
+}
+
+/* Floating information panels */
+.parsec-card .parsec-info-item {
+  transform: translateZ(12px);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .parsec-card .parsec-info-item:hover {
+    transform: translateZ(24px) translateX(4px);
+    box-shadow: 0 12px 28px rgba(23, 63, 53, 0.10);
+  }
+}
+
+@keyframes parsecAmbientGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* Mobile safety */
+@media (max-width: 768px) {
+  .parsec-card::before {
+    width: 220px;
+    height: 220px;
+    opacity: 0.55;
+  }
+
+  .parsec-card .parsec-info-item {
+    transform: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .parsec-card::before {
+    animation: none;
+  }
+}
