@@ -1178,3 +1178,11 @@ section > h2:hover::after {
 }
 
 /* ===================
+#contact { text-align: center; } 
+#contact h2 { text-align: center; margin-left: auto; margin-right: auto; } 
+#contact p { width: 100%; max-width: 700px; margin: 10px auto; text-align: center; } 
+#contact a { word-break: break-word; } 
+footer { width: 100%; max-width: 1120px; margin: 0 auto; padding: 35px 28px 45px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; } 
+footer p { width: 100%; margin: 0; text-align: center; color: var(--muted); font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6; } 
+.parsec-header { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; } 
+.parsec-logo { width: 82px; height: 82px; flex: 0 0 82px; object-fit: contain; display: block; border-radius: 18px; }
