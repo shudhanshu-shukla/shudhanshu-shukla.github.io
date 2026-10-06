@@ -1411,3 +1411,59 @@ section {
     opacity: 0.7;
   }
 }
+/* =================================
+   3D V2 — CONTACT SPACING FIX
+================================= */
+
+#contact {
+  padding-top: 45px;
+  padding-bottom: 30px;
+  min-height: auto;
+}
+
+#contact h2 {
+  margin-bottom: 20px;
+}
+
+#contact p {
+  margin: 8px auto;
+}
+
+footer {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  #contact {
+    padding-top: 35px;
+    padding-bottom: 25px;
+  }
+}
+/* =================================
+   3D V2 — PROJECT CARD STABILITY FIX
+================================= */
+
+.project-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.project-card:focus,
+.project-card:focus-visible,
+.project-card:active {
+  outline: none;
+  box-shadow:
+    0 18px 45px rgba(23, 63, 53, 0.12);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .project-card {
+    --card-rx: 0deg !important;
+    --card-ry: 0deg !important;
+    --card-y: 0px !important;
+    --card-light-opacity: 0 !important;
+  }
+
+  .project-card::after {
+    opacity: 0 !important;
+  }
+}
