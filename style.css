@@ -1356,3 +1356,24 @@ footer p {
     animation: none;
   }
 }
+/* =================================
+   3D V2 — NAVBAR SCROLL OFFSET FIX
+================================= */
+
+html {
+  scroll-padding-top: 105px;
+}
+
+section {
+  scroll-margin-top: 105px;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 135px;
+  }
+
+  section {
+    scroll-margin-top: 135px;
+  }
+}
